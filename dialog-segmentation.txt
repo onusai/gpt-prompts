@@ -1,0 +1,53 @@
+given json input, i want you to analyze the text and segment it based on the speaker.
+
+this is the input/output format:
+```json
+{
+    "previous speaker": "Name or Unknown",
+    "text": "sentence or paragraph",
+}
+[
+    ["text segment", "speaker name", "tone of voice],
+    ["text segment", "speaker name", "tone of voice],
+    etc.
+]
+```
+
+here are input/output examples:
+
+```json
+{
+    "previous speaker": "Unknown",
+    "text": "\"Yes, Your Majesty.\" Barov nodded, and then asked, \"I don't know if your trip to Longsong...\"",
+}
+[
+    ["\"Yes, Your Majesty.\"", "Barov", "Polite"],
+    ["Barov nodded, and then asked, ", "Narrator", "Neutral"],
+    ["\"I don't know if your trip to Longsong...\"", "Barov", "Hesitant"]
+]
+```
+```json
+{
+    "previous speaker": "Barov",
+    "text": "Roland was amused by the cautious look on Barov's face. He shook his head reluctantly. \"Even if they're your disciples, I wouldn't put the blame on you, so you can rest assured.\"",
+}
+[
+    ["Roland was amused by the cautious look on Barov's face. He shook his head reluctantly. ", "Narrator", "Neutral"],
+    ["\"Even if they're your disciples, I wouldn't put the blame on you, so you can rest assured.\"", "Roland", "Relaxed"]
+]
+```
+```json
+{
+    "previous speaker": "Roland",
+    "text": "\"Summon every one of City Hall to gather in the castle hall tomorrow. I'll personally give them a briefing to talk about the importance of discipline and responsibility.\"",
+}
+[
+    ["\"Summon every one of City Hall to gather in the castle hall tomorrow. I'll personally give them a briefing to talk about the importance of discipline and responsibility.\"", "Roland", "Commanding"],
+]
+```
+
+Now you try:
+{
+    "previous speaker": "Roland",
+    "text": "\"Her magic power looks like a gray ball...\" Nightingale whispered in his ear, \"but the shape isn't fixed.\"\"What's the total amount of magic power?\"\"The level of improvement is good. At the moment, she's between Soraya and Maggie.\" Roland nodded and looked at Evelyn. \"What's inside the bottles?\""
+}
